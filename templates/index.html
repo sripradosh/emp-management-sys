@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+    {% include 'header.html' %}
+</head>
+<style>
+html{
+ height:100%;
+}
+body{
+background-image:url('static/source/image/3.jpg');
+background-repeat:no-repeat;
+background-size:cover;
+}
+   .navbar-inverse{
+   background-color:#1e1e1e;
+   border-color:#dc143c;
+}
+.navbar .navbar-brand{
+   font-size:20px;
+   color:white;
+}
+.navbar-inverse .navbar-nav>li>a{
+  color:white;
+  font-size:18px;
+}
+.navbar-inverse .navbar-nav>li>a:hover{
+  color:orange;
+  font-size:18px;
+}
+.navbar{
+  box-shadow: 1px 1px 5px black;
+}
+</style>
+<body>
+{% extends 'home_navbar.html' %}
+</body>
+</html>

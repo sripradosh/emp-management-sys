@@ -1,0 +1,12 @@
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="{{url_for('admin_home')}}" class="navbar-brand" style="color:white;"><i class="fa fa-home"> <small>Admin Panel</small></i></a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{{url_for('admin_home')}}"><i class="fa fa-user"></i> Welcome: {{session["aname"]}}</a></li>
+      <li><a href="{{url_for('view_users')}}"><i class="fa fa-users"></i> View Employee profiles</a></li>
+      <li><a href="{{url_for('logout')}}"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+  </div>
+</nav>

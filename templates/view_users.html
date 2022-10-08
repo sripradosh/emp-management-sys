@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Users</title>
+    {% include 'header.html' %}
+    {% include 'admin_home_nav.html' %}
+</head>
+<style>
+   .navbar-inverse{
+   background-color:#1e1e1e;
+   border-color:#dc143c;
+}
+.navbar .navbar-brand{
+   font-size:20px;
+   color:white;
+}
+.navbar-inverse .navbar-nav>li>a{
+  color:white;
+  font-size:18px;
+}
+.navbar-inverse .navbar-nav>li>a:hover{
+  color:orange;
+  font-size:18px;
+}
+.navbar{
+  box-shadow: 1px 1px 5px black;
+}
+</style>
+<body>
+     <div class="col-md-offset-3 col-md-6" style="margin-top:100px">
+    <h3 class="page-header text-primary"><i class="fa fa-users"> View Users</i></h3>
+         {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+           {% for category, message in messages %}
+             <div class="alert alert-{{category}}" role="alert">{{ message }}</div>
+           {% endfor %}
+          {% endif %}
+         {% endwith %}
+         <table class="table table-bordered">
+             <thead>
+             <tr>
+                 <th style="text-align:center">S.No</th>
+                 <th style="text-align:center">Name</th>
+                 <th style="text-align:center">Password</th>
+                 <th style="text-align:center">Number</th>
+                 <th style="text-align:center">Email</th>
+                 <th style="text-align:center">Address</th>
+                 <th style="text-align:center">Department</th>
+                 <th style="text-align:center">Delete</th>
+             </tr>
+             </thead>
+             <tbody>
+             {% for data in res %}
+             <tr>
+                 <td style="text-align:center">{{loop.index}}</td>
+                 <td>{{data.name}}</td>
+                 <td style="text-align:center">{{data.password}}</td>
+                 <td>{{data.number}}</td>
+                 <td style="text-align:center">{{data.email}}</td>
+                 <td>{{data.address}}</td>
+                 <td style="text-align:center">{{data.department}}</td>
+                 <td style="text-align:center"><a href="{{url_for('delete_users',id=data['eid'])}}" class="btn btn-danger" >Delete</a></td>
+             </tr>
+             {% endfor %}
+             </tbody>
+         </table>
+     </div>
+</body>
+</html>
